@@ -37,8 +37,10 @@ gem "simple_form"
 gem 'jquery-rails'
 gem "haml"
 gem "bootstrap-sass"
+gem 'inherited_resources'
 
 gem "figaro"
 gem "thin"
 
 gem "blue_conductor"
+gem "virtus"

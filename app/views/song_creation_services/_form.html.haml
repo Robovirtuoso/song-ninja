@@ -1,0 +1,9 @@
+= simple_form_for [current_user, @song_creation_service ] do |f|
+  = f.error_notification
+
+  .form-inputs
+    = f.input :band_name
+    = f.input :song_name
+
+  .form-actins
+    = f.button :submit
