@@ -7,5 +7,5 @@
   - @bands.each do |band|
     %tr
       %th= link_to band.name, user_band_songs_path(current_user, band.id)
-      %td= link_to 'Edit Band', '#'
+      %td= link_to 'Edit Band', edit_user_band_path(current_user, band.id)
       %td= link_to 'Remove Band', user_band_path(current_user,band), method: :delete, confirm: 'Warning: Permanantly Removes Band'
