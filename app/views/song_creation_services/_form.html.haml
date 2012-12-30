@@ -1,7 +1,7 @@
 = simple_form_for [current_user, @song_creation_service ], html: { class: 'form-inline' } do |f|
   = f.error_notification
 
-  %div{ class: 'controls controls-row' }
+  .controls.controls-row
     = f.input_field :band_name, input_html: { class: 'span3' }, placeholder: 'Band Name'
     = f.input_field :song_name, input_html: { class: 'span3' }, placeholder: 'Song Name'
 

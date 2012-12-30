@@ -26,7 +26,7 @@ class SongCreationService
   private
 
   def persist!
-    retrieve_track_info
+    create_track
     create_band
     create_song
   end
