@@ -1,3 +1,4 @@
+
 class SongCreationService
   include Virtus
 
@@ -26,7 +27,8 @@ class SongCreationService
   private
 
   def persist!
-    @band = Band.create!(name: band_name)
-    @song = @band.songs.create!(title: song_name)
+    @track = BlueConductor.song_for(band_name, song_name)
+    @band = Band.create!(name: @track.band)
+    @song = @band.songs.create!(title: @track.title, lyrics: @track.lyrics)
   end
 end
