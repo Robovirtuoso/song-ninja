@@ -27,7 +27,7 @@ class SongCreationService
 
   def persist!
     @track = BlueConductor.song_for(band_name, song_name)
-    @band = Band.create!(name: @track.band)
+    @band = Band.where(name: @track.band).first || Band.create!(name: @track.band)
     @song = @band.songs.create!(title: @track.title, lyrics: @track.lyrics)
   end
 end
