@@ -1,0 +1,11 @@
+%h3 Songs and Stuff
+
+%table.table.table-bordered
+  %tr
+    %th Song Title
+    %th Lyrics
+
+  - @band.songs.each do |song|
+    %tr
+      %th= link_to song.title, user_band_song_path(current_user, @band, song)
+      %th= truncate(song.lyrics, length: 60)

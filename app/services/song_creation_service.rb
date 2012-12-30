@@ -1,4 +1,3 @@
-
 class SongCreationService
   include Virtus
 
