@@ -9,3 +9,5 @@
     %tr
       %th= link_to song.title, user_band_song_path(current_user, @band, song)
       %th= truncate(song.lyrics, length: 60)
+      %th= link_to 'Delete Song', user_band_song_path(current_user, @band, song), method: :delete
+
