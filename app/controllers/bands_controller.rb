@@ -5,7 +5,7 @@ class BandsController < ApplicationController
 
   def index
     index! do
-      @bands.sort_by! { |band| band.name }
+      @bands = Band.order(:name)
     end
   end
 end
