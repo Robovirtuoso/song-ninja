@@ -1,4 +1,4 @@
-%h3= @song.title
+%h3= best_in_place [:user, @song.band, @song], :title, type: :input
 
 %blockquote.pull-right
-  %p= simple_format(@song.lyrics).html_safe
+  %p= best_in_place [:user, @song.band, @song], :lyrics, type: :textarea, display_with:  -> v { v.gsub(/[\r\n]+/, '<br>').html_safe }
