@@ -10,7 +10,9 @@ SongNinja::Application.routes.draw do
 
   resources :users do
     resources :bands do
-      resources :songs
+      resources :albums do
+        resources :songs
+      end
     end
 
     resources :song_creation_services

@@ -6,8 +6,15 @@ class SongsController < ApplicationController
   respond_to :html, :json, :js
 
   def index
-    @band = Band.find(params[:band_id])
-    super
+    index! do
+      @album = Album.find(params[:album_id])
+    end
+  end
+
+  def show
+    show! do
+      @album = Album.find(params[:album_id])
+    end
   end
 
   def update

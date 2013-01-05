@@ -5,7 +5,7 @@ class SongCreationService
   include ActiveModel::Conversion
   include ActiveModel::Validations
 
-  attr_reader :band, :song
+  attr_reader :band, :song, :album
 
   attribute :band_name, String
   attribute :song_name, String
@@ -28,6 +28,7 @@ class SongCreationService
   def persist!
     retrieve_track_info
     create_band
+    create_album
     create_song
   end
 
@@ -39,7 +40,11 @@ class SongCreationService
     @band = Band.where(name: @track.band).first || Band.create!(name: @track.band)
   end
 
+  def create_album
+    @album = Album.where(title: @track.album).first || @band.albums.create!(title: @track.album)
+  end
+
   def create_song
-    @song = @band.songs.create!(title: @track.title, lyrics: @track.lyrics)
+    @song = @album.songs.create!(title: @track.title, lyrics: @track.lyrics)
   end
 end

@@ -1,6 +1,6 @@
 class Album < ActiveRecord::Base
-  attr_accessible :title, :cover_art
+  attr_accessible :title
 
-  has_many :songs
+  has_many :songs, dependent: :destroy
   belongs_to :band
 end
