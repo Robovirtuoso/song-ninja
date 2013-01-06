@@ -1,0 +1,9 @@
+= simple_form_for [ current_user, @band ] do |f|
+  = f.error_notification
+
+  .form-inputs
+    = f.input :name
+
+  .form-actions
+    = f.button :submit, class: 'btn btn-success'
+    = link_to 'Cancel', user_bands_path(current_user), class: 'btn btn-inverse'
