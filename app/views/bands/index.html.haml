@@ -1,15 +1,21 @@
 %h3 The bands you have selected, Ninja-san
 
-%table.table.table-bordered
-  %tr
-    %th Band Name
+- @bands.each do |band|
+  %ul.nav.nav-list
+    %li.nav-header Bands
+    %li= link_to band.name, '#'
 
-  - @bands.each do |band|
-    %tr
-      %td= link_to band.name, '#'
-      #albums
-        - band.albums.each do |album|
-          %td= link_to album.title, [ current_user, band, album ]
+    %table.table.table-bordered.hidden
+      %tr
+        %th Record Title
 
-      %td= link_to 'Edit Band', edit_user_band_path(current_user, band.id)
-      %td= link_to 'Remove Band', user_band_path(current_user,band), method: :delete, confirm: 'Warning: Permanantly Removes Band'
+      %tr
+        #albums
+          - band.albums.each do |album|
+            %td= link_to album.title, [ current_user, band, album ]
+
+    .btn-group.hidden
+      = link_to 'Edit Band', edit_user_band_path(current_user, band.id), class: 'btn'
+      = link_to 'Remove Band', user_band_path(current_user,band), method: :delete, confirm: 'Warning: Permanantly Removes Band', class: 'btn'
+
+
