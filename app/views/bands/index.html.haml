@@ -1,20 +1,22 @@
 %h3 The bands you have selected, Ninja-san
 
-- @bands.each do |band|
-  %ul.nav.nav-list
-    %li.nav-header Bands
-    %li= link_to band.name, '#'
+%ul.nav.nav-list
+  %li.nav-header Bands
 
-    %table.table.table-bordered.hidden
+  - @bands.each_with_index do |band, index|
+    %li= link_to band.name, '#', id: band.id
+
+    - visibility = index == 0 ? 'block' : 'none'
+
+    %table{ class: 'table table-bordered', id: dom_id(band), style: "display: #{visibility}"}
       %tr
         %th Record Title
 
       %tr
-        #albums
-          - band.albums.each do |album|
-            %td= link_to album.title, [ current_user, band, album ]
+        - band.albums.each do |album|
+          %td= link_to album.title, [ current_user, band, album ]
 
-    .btn-group.hidden
+    .btn-group{ id: dom_id(band), style: "display: #{visibility}" }
       = link_to 'Edit Band', edit_user_band_path(current_user, band.id), class: 'btn'
       = link_to 'Remove Band', user_band_path(current_user,band), method: :delete, confirm: 'Warning: Permanantly Removes Band', class: 'btn'
 
