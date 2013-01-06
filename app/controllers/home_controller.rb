@@ -1,5 +1,6 @@
 class HomeController < ApplicationController
   def index
-    @users = User.all
+    @song_creation_service = SongCreationService.new
+    @album_creation_service = AlbumCreationService.new
   end
 end

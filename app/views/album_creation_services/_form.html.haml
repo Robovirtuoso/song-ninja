@@ -1,0 +1,9 @@
+= simple_form_for [ current_user, @album_creation_service ], html: { class: 'form-inline' } do |f|
+  = f.error_notification
+
+  .controls.control-row
+    = f.input_field :band, input_html: { class: 'span3' }, placeholder: 'Band Name'
+    = f.input_field :record, input_html: { class: 'span3' }, placeholder: 'Record Title'
+
+  .controls
+    = f.submit 'Create Album', class: 'add-song btn btn-success'
