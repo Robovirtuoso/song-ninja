@@ -1,5 +1,5 @@
-%ul
-  %li= @album.title
+%h3= @album.title
 
+%ul
   - @album.songs.each do |song|
     %li= link_to song.title, [ current_user, @album.band, @album, song ]

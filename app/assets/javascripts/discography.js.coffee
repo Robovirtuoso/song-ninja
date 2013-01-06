@@ -5,7 +5,7 @@ class Discography
     for element in @elements
       @bands.push new BandLink(element)
 
-    $(@bands[0]).addClass('active')
+    $(@elements[0]).addClass('active')
     @setupObservers()
 
   setupObservers: ->
@@ -28,12 +28,12 @@ class BandLink
       $(event.target).trigger 'clicked_link', @
 
   hideAlbum: ->
-    $(@link).removeClass('active')
+    @link.removeClass('active')
     $("table#band_#{@id}").hide()
     $("div#band_#{@id}").hide()
 
   showAlbum: ->
-    $(@link).addClass('active')
+    @link.addClass('active')
     $("table#band_#{@id}").show()
     $("div#band_#{@id}").show()
 
