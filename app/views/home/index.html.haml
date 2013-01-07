@@ -1,5 +1,14 @@
 %h4 Song Ninja
 
-= render 'song_creation_services/form'
+.span3
+  %ul.nav.nav-list.nav-pills.nav-stacked
+    %li.nav-header Ninjitsu
+    %li.active= link_to 'Shuriken by Song', '#', class: 'song'
+    %li= link_to 'Shuriken by Album', '#', class: 'album'
 
-= render 'album_creation_services/form'
+.span5
+  .song-form.wrapper
+    = render 'song_creation_services/form'
+
+  .album-form.wrapper
+    = render 'album_creation_services/form'

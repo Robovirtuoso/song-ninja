@@ -1,7 +1,9 @@
+@import "colors";
+
 .nav-list {
   li {
     a.active{
-      color: red;
+      color: $lightRed;
 
     }
   }

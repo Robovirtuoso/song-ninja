@@ -1,13 +1,16 @@
 %h3 The bands you have selected, Ninja-san
 
-%ul.nav.nav-list
-  %li.nav-header Bands
+.span3
+  %ul.nav.nav-list
+    %li.nav-header Bands
+    - @bands.each_with_index do |band, index|
+      - active = index == 0 ? 'active' : ''
+      %li{id: band.id, class: active }= link_to band.name, '#'
 
+
+.span5
   - @bands.each_with_index do |band, index|
-    %li= link_to band.name, '#', id: band.id
-
     - visibility = index == 0 ? 'block' : 'none'
-
     %table{ class: 'table table-bordered', id: dom_id(band), style: "display: #{visibility}"}
       %tr
         %th Record Title
