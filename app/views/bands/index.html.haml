@@ -15,8 +15,8 @@
       %tr
         %th Record Title
 
-      %tr
-        - band.albums.each do |album|
+      - band.albums.each do |album|
+        %tr
           %td= link_to album.title, [ current_user, band, album ]
 
     .btn-group{ id: dom_id(band), style: "display: #{visibility}" }
