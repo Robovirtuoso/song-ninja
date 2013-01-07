@@ -1,12 +1,8 @@
-class AlbumCreationService
-  include Virtus
-  extend ActiveModel::Naming
-  include ActiveModel::Conversion
-  include ActiveModel::Validations
-
+class AlbumCreationService < ApplicationService
+  attr_reader :album, :band
 
   attribute :band, String
-  attribute :record, String
+  attribute :album, String
 
   def persisted?
     false
@@ -24,5 +20,17 @@ class AlbumCreationService
   private
 
   def persist!
+    fetch
+    create_album!
+  end
+
+  def fetch
+    @record = BlueConductor.record_for(band, album)
+  end
+
+  def create_album!
+    @record.songs.each do |song|
+      BandEngineer.new(song).build
+    end
   end
 end
