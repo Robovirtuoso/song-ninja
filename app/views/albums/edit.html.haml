@@ -10,5 +10,5 @@
 
     - @album.songs.each do |song|
       %tr
-        %td= song.title
+        %td= link_to song.title, [ current_user, @album.band, @album, song ]
         %td= link_to 'Remove Song', [ current_user, @album.band, @album, song ], method: :delete, class: 'btn-small btn-danger'
