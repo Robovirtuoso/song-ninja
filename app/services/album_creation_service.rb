@@ -21,16 +21,26 @@ class AlbumCreationService < ApplicationService
 
   def persist!
     fetch
-    create_album!
+    band!
+    album!
+    songs!
   end
 
   def fetch
     @record = BlueConductor.record_for(band, album)
   end
 
-  def create_album!
+  def band!
+    @band = BandEngineer.new(band).build
+  end
+
+  def album!
+    @album = AlbumEngineer.new(@band, album).build
+  end
+
+  def songs!
     @record.songs.each do |song|
-      BandEngineer.new(song).build
+      SongEngineer.new(@album, song).build
     end
   end
 end

@@ -9,11 +9,7 @@ class SongCreationServicesController < ApplicationController
     @song_service = SongCreationService.new(params[:song_creation_service])
 
     if @song_service.save
-      band = Band.where(name: @song_service.band).first
-      album = Album.where(band_id: band.id).first
-      song = Song.where(title: @song_service.song).first
-
-      redirect_to [ current_user, band, album, song ]
+      redirect_to [ current_user, @song_service.band, @song_service.album, @song_service.song ]
     else
       redirect_to root_url
     end

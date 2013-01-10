@@ -8,10 +8,7 @@ class AlbumCreationServicesController < ApplicationController
     @album_service = AlbumCreationService.new(params[:album_creation_service])
 
     if @album_service.save
-      band = Band.where(name: @album_service.band).first
-      album = Album.where(title: @album_service.album).first
-
-      redirect_to [ current_user, band, album ]
+      redirect_to [ current_user, @album_service.band, @album_service.album ]
     else
       redirect_to root_url
     end

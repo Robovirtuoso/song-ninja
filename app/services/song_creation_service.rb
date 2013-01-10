@@ -1,5 +1,5 @@
 class SongCreationService < ApplicationService
-  attr_reader :band, :song
+  attr_reader :band, :song, :album
 
   attribute :band, String
   attribute :song, String
@@ -21,14 +21,24 @@ class SongCreationService < ApplicationService
 
   def persist!
     fetch
-    create_song!
+    band!
+    album!
+    song!
   end
 
   def fetch
     @track = BlueConductor.song_for(band, song)
   end
 
-  def create_song!
-    BandEngineer.new(@track).build
+  def band!
+    @band = BandEngineer.new(band).build
+  end
+
+  def album!
+    @album = AlbumEngineer.new(@band, @track.album).build
+  end
+
+  def song!
+    @song = SongEngineer.new(@album, @track).build
   end
 end
