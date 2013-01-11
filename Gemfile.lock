@@ -1,8 +1,3 @@
-PATH
-  remote: ../blue_conductor
-  specs:
-    blue_conductor (0.0.1)
-
 GEM
   remote: https://rubygems.org/
   specs:
@@ -44,6 +39,7 @@ GEM
       coderay (>= 1.0.0)
       erubis (>= 2.7.0)
     binding_of_caller (0.6.8)
+    blue_conductor (0.0.1)
     bootstrap-sass (2.2.2.0)
       sass (~> 3.2)
     builder (3.0.4)
@@ -220,7 +216,7 @@ DEPENDENCIES
   best_in_place (>= 1.1.2)
   better_errors
   binding_of_caller
-  blue_conductor!
+  blue_conductor
   bootstrap-sass
   cancan
   capybara

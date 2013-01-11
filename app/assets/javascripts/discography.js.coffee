@@ -13,7 +13,6 @@ class Discography
 
   handleClick: (event, clickedBand) =>
     link.hideAlbum() for link in @bands
-    console.log clickedBand
     clickedBand.showAlbum()
 
 class BandLink
@@ -39,7 +38,7 @@ class BandLink
 
 
 jQuery ->
-  links = $('.nav-list li a')
+  links = $('.nav-list li')
 
   if links.length > 0
     new Discography links
