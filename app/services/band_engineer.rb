@@ -8,6 +8,8 @@ class BandEngineer
     band
   end
 
+  private
+
   def band
     Band.where(name: @band).first_or_create
   end

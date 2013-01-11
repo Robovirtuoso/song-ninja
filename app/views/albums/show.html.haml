@@ -1,5 +1,13 @@
-%h3= @album.title
+%h3.album-title= @album.title
 
-%ul
-  - @album.songs.each do |song|
-    %li= link_to song.title, [ current_user, @album.band, @album, song ]
+.span2
+  %ul.thumbnails
+    %li
+      = image_tag @album.image
+
+.span3
+  %ul
+    - @album.songs.each do |song|
+      %li= link_to song.title, [ current_user, @album.band, @album, song ]
+
+

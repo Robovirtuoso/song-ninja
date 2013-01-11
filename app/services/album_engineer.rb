@@ -9,7 +9,9 @@ class AlbumEngineer
     album
   end
 
+  private
+
   def album
-    @band.albums.where(title: @album).first_or_create
+    @band.albums.where(title: @album, image: @image).first_or_create
   end
 end

@@ -40,6 +40,5 @@ gem "bootstrap-sass"
 gem 'inherited_resources'
 gem "figaro"
 gem "thin"
-gem "blue_conductor"
+gem "blue_conductor", path: '../blue_conductor'
 gem "virtus"
-gem "paperclip", "~> 3.0"
