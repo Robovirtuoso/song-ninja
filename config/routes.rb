@@ -1,7 +1,7 @@
 SongNinja::Application.routes.draw do
 
   authenticated :user do
-    root :to => 'song_creation_services#new'
+    root :to => 'home#index'
   end
 
   root :to => "home#index"
@@ -16,5 +16,6 @@ SongNinja::Application.routes.draw do
     end
 
     resources :song_creation_services
+    resources :album_creation_services
   end
 end

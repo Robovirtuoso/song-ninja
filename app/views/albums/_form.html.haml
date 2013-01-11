@@ -1,0 +1,7 @@
+= simple_form_for [ current_user, @band, @album ] do |f|
+  = f.error_notification
+
+  = f.input :title
+
+  = f.submit 'Update Album', class: 'btn btn-success'
+  = link_to 'Cancel', user_bands_path(current_user), class: 'btn btn-inverse'

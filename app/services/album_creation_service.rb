@@ -1,8 +1,8 @@
-class SongCreationService < ApplicationService
-  attr_reader :band, :song, :album
+class AlbumCreationService < ApplicationService
+  attr_reader :album, :band
 
   attribute :band, String
-  attribute :song, String
+  attribute :album, String
 
   def persisted?
     false
@@ -23,11 +23,11 @@ class SongCreationService < ApplicationService
     fetch
     band!
     album!
-    song!
+    songs!
   end
 
   def fetch
-    @track = BlueConductor.song_for(band, song)
+    @record = BlueConductor.record_for(band, album)
   end
 
   def band!
@@ -35,10 +35,12 @@ class SongCreationService < ApplicationService
   end
 
   def album!
-    @album = AlbumEngineer.new(@band, @track.album).build
+    @album = AlbumEngineer.new(@band, album).build
   end
 
-  def song!
-    @song = SongEngineer.new(@album, @track).build
+  def songs!
+    @record.songs.each do |song|
+      SongEngineer.new(@album, song).build
+    end
   end
 end

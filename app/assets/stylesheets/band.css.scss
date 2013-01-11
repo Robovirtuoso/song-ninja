@@ -1,11 +1,18 @@
+@import "colors";
+
 .nav-list {
   li {
     a.active{
-      color: red;
+      color: $lightRed;
 
     }
-  }
-  table {
-    width: 150px;
-  }
+  } 
+}
+
+table {
+  width: 400px;
+}
+
+a.btn-small {
+  padding: 5px;
 }
