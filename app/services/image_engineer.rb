@@ -1,7 +1,7 @@
 class ImageEngineer
 
   def initialize(album, image)
-    @title = album.title
+    @album = album
     @image = image
   end
 
@@ -12,6 +12,6 @@ class ImageEngineer
   private
 
   def image
-    Album.where(title: @title).first.update_attribute(:image, @image)
+    @album.update_attribute(:image, @image)
   end
 end
