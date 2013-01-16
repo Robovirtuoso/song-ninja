@@ -1,8 +1,8 @@
 class AlbumEngineer
 
-  def initialize(band, album)
-    @band  = band
-    @album = album
+  def initialize(band, record)
+    @band   = band
+    @record = record
   end
 
   def build
@@ -12,6 +12,6 @@ class AlbumEngineer
   private
 
   def album
-    @band.albums.where(title: @album).first_or_create
+    @band.albums.where(title: @record.title, image: @record.image).first_or_create
   end
 end

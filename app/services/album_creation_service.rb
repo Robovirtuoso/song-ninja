@@ -23,7 +23,6 @@ class AlbumCreationService < ApplicationService
     fetch
     band!
     album!
-    image!
     songs!
   end
 
@@ -36,11 +35,7 @@ class AlbumCreationService < ApplicationService
   end
 
   def album!
-    @album = AlbumEngineer.new(@band, album).build
-  end
-
-  def image!
-    ImageEngineer.new(@album, @record.image).build
+    @album = AlbumEngineer.new(@band, @record).build
   end
 
   def songs!
