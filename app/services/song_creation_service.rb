@@ -35,12 +35,8 @@ class SongCreationService < ApplicationService
   end
 
   def album!
-    @album =
-        if @band.albums.where(title: @track.album).exists?
-          @band.albums.where(title: @track.album).first
-        else
-          AlbumEngineer.new(@band, BlueConductor.art_for(@band.name, @track.album)).build
-        end
+    @album = AlbumEngineer.validates(@band, @track.album) ||
+      AlbumEngineer.new(@band, BlueConductor.art_for(@band.name, @track.album)).build
   end
 
   def song!

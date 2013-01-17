@@ -9,6 +9,10 @@ class AlbumEngineer
     album
   end
 
+  def self.validates(band, record)
+    band.albums.where(title: record).first if band.albums.where(title: record).exists?
+  end
+
   private
 
   def album
