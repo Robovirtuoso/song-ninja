@@ -10,3 +10,21 @@
 .album-title {
   margin-left: 30px;
 }
+
+.track-list {
+  border-width: thick;
+  border: 20px solid black;
+  border-width: medium;
+  border-radius: 8px;
+  width: 220px;
+  padding-top: 7px;
+  background: #FF5E5E;
+
+  li {
+    display: block;
+
+    a {
+      color: #E8E8E8;
+    }
+  }
+}

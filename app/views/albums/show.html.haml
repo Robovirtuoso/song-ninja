@@ -6,8 +6,9 @@
       = image_tag @album.image
 
 .span3
-  %ul
-    - @album.songs.each do |song|
-      %li= link_to song.title, [ current_user, @album.band, @album, song ]
+  .track-list
+    %ul
+      - @album.songs.each do |song|
+        %li= link_to song.title, [ current_user, @album.band, @album, song ]
 
 
