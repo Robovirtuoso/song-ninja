@@ -6,4 +6,4 @@
     = f.input_field :song, input_html: { class: 'span3' }, placeholder: 'Song Name'
 
   .controls
-    = f.submit 'Add Song', class: 'add-song btn btn-success'
+    = f.submit 'Add Song', class: 'add-song btn btn-success', disable_with: 'Creating...'
