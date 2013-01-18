@@ -10,7 +10,7 @@ class AlbumCreationServicesController < ApplicationController
     if @album_service.save
       redirect_to [ current_user, @album_service.band, @album_service.album ]
     else
-      redirect_to root_url
+      redirect_to root_url, alert: @album_service.errors.full_messages.join(", ")
     end
   end
 end
