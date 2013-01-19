@@ -4,6 +4,9 @@ class SongCreationService < ApplicationService
   attribute :band, String
   attribute :song, String
 
+  validates :band, presence: true
+  validates :song, presence: true
+
   def persisted?
     false
   end

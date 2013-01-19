@@ -1,5 +1,7 @@
-PATH
-  remote: ../blue_conductor
+GIT
+  remote: git://github.com/Robovirtuoso/blue_conductor.git
+  revision: 39df1a4fb02a071f474c553e4c3a37d5b046a092
+  branch: art-for
   specs:
     blue_conductor (0.1.0)
 

@@ -4,6 +4,9 @@ class AlbumCreationService < ApplicationService
   attribute :band, String
   attribute :album, String
 
+  validates :band, presence: true
+  validates :album, presence: true
+
   def persisted?
     false
   end

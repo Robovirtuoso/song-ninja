@@ -11,7 +11,7 @@ class SongCreationServicesController < ApplicationController
     if @song_service.save
       redirect_to [ current_user, @song_service.band, @song_service.album, @song_service.song ]
     else
-      redirect_to root_url
+      redirect_to root_url, alert: @song_service.errors.full_messages.join(", ")
     end
   end
 end
