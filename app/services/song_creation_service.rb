@@ -25,8 +25,8 @@ class SongCreationService < ApplicationService
   def persist!
     fetch
     band!
-    album!
-    song!
+    album
+    song
   end
 
   def fetch
@@ -37,12 +37,12 @@ class SongCreationService < ApplicationService
     @band = BandEngineer.new(band).build
   end
 
-  def album!
+  def album
     @album = AlbumEngineer.validates(@band, @track.album) ||
       AlbumEngineer.new(@band, BlueConductor.art_for(@band.name, @track.album)).build
   end
 
-  def song!
+  def song
     @song = SongEngineer.new(@album, @track).build
   end
 end
