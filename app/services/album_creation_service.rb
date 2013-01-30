@@ -4,6 +4,9 @@ class AlbumCreationService < ApplicationService
   attribute :band, String
   attribute :album, String
 
+  validates :band, presence: true
+  validates :album, presence: true
+
   def persisted?
     false
   end
@@ -22,8 +25,8 @@ class AlbumCreationService < ApplicationService
   def persist!
     fetch
     band!
-    album!
-    songs!
+    album
+    songs
   end
 
   def fetch
@@ -34,11 +37,11 @@ class AlbumCreationService < ApplicationService
     @band = BandEngineer.new(band).build
   end
 
-  def album!
-    @album = AlbumEngineer.new(@band, album).build
+  def album
+    @album = AlbumEngineer.new(@band, @record).build
   end
 
-  def songs!
+  def songs
     @record.songs.each do |song|
       SongEngineer.new(@album, song).build
     end

@@ -13,6 +13,7 @@ group :development do
   gem "quiet_assets"
   gem "better_errors"
   gem "binding_of_caller"
+  gem "pry"
 end
 
 group :test do
@@ -40,6 +41,5 @@ gem "bootstrap-sass"
 gem 'inherited_resources'
 gem "figaro"
 gem "thin"
-gem "blue_conductor"
+gem "blue_conductor", github: 'Robovirtuoso/blue_conductor', branch: 'art-for'
 gem "virtus"
-gem "paperclip", "~> 3.0"
