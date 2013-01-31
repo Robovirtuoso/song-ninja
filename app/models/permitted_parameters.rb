@@ -4,7 +4,7 @@ class PermittedParameters < Struct.new(:params, :user)
     params.require(model).permit!
   end
 
-  def admin
+  def usr
     if user.has_role? :admin
       params.require(:user).permit!
     else
