@@ -5,4 +5,9 @@ class ApplicationController < ActionController::Base
     redirect_to root_path, :alert => exception.message
   end
 
+  private
+
+  def permitted_params
+    @permitted_paramaters ||= PermittedParameters.new(params, current_user)
+  end
 end
