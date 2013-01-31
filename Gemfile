@@ -43,3 +43,4 @@ gem "figaro"
 gem "thin"
 gem "blue_conductor", github: 'Robovirtuoso/blue_conductor', branch: 'art-for'
 gem "virtus"
+gem "strong_parameters"
