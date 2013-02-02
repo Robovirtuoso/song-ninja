@@ -1,11 +1,11 @@
-class AlbumSweeper < ActionController::Caching::Sweeper
+class SongSweeper < ActionController::Caching::Sweeper
 
   include CacheTriggers
 
   private
 
   def expire_cache
+    expire_page(controller: 'songs', action: 'show')
     expire_page(controller: 'albums', action: 'show')
-    expire_page(controller: 'bands', action: 'index')
   end
 end
