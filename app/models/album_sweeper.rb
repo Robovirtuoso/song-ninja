@@ -1,4 +1,4 @@
-class BandSweeper < ActionController::Caching::Sweeper
+class AlbumSweeper < ActionController::Caching::Sweeper
 
   def after_create
     expire_cache
@@ -15,6 +15,7 @@ class BandSweeper < ActionController::Caching::Sweeper
   private
 
   def expire_cache
+    expire_page(controller: 'albums', action: 'show')
     expire_page(controller: 'bands', action: 'index')
   end
 end
