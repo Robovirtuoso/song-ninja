@@ -9,20 +9,21 @@
 
 
 .span5
-  - @bands.each_with_index do |band, index|
-    - visibility = index == 0 ? 'block' : 'none'
-    %table{ class: 'table table-bordered', id: dom_id(band), style: "display: #{visibility}"}
-      %tr
-        %th Record Title
-
-      - band.albums.each do |album|
+  - cache('album_index') do
+    - @bands.each_with_index do |band, index|
+      - visibility = index == 0 ? 'block' : 'none'
+      %table{ class: 'table table-bordered', id: dom_id(band), style: "display: #{visibility}"}
         %tr
-          %td= link_to album.title, [ current_user, band, album ]
-          %td= link_to 'Remove Album', [ current_user, band, album ], method: :delete, class: 'btn-small btn-danger'
-          %td= link_to 'Edit Album', [ :edit, current_user, band, album ], class: 'btn-small btn-info'
+          %th Record Title
 
-    .btn-group{ id: dom_id(band), style: "display: #{visibility}" }
-      = link_to 'Edit Band', edit_user_band_path(current_user, band.id), class: 'btn'
-      = link_to 'Remove Band', user_band_path(current_user,band), method: :delete, confirm: 'Warning: Permanantly Removes Band', class: 'btn'
+        - band.albums.each do |album|
+          %tr
+            %td= link_to album.title, [ current_user, band, album ]
+            %td= link_to 'Remove Album', [ current_user, band, album ], method: :delete, class: 'btn-small btn-danger'
+            %td= link_to 'Edit Album', [ :edit, current_user, band, album ], class: 'btn-small btn-info'
+
+      .btn-group{ id: dom_id(band), style: "display: #{visibility}" }
+        = link_to 'Edit Band', edit_user_band_path(current_user, band.id), class: 'btn'
+        = link_to 'Remove Band', user_band_path(current_user,band), method: :delete, confirm: 'Warning: Permanantly Removes Band', class: 'btn'
 
 
