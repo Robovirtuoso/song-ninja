@@ -1,4 +1,6 @@
 class HomeController < ApplicationController
+  caches_action :index
+
   def index
     @song_service = SongCreationService.new
     @album_service = AlbumCreationService.new
