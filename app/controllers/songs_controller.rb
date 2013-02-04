@@ -1,15 +1,10 @@
 class SongsController < ApplicationController
   inherit_resources
 
-  include ApplicationHelper
+  caches_action :show
+  cache_sweeper :song_sweeper
 
   respond_to :html, :json, :js
-
-  def index
-    index! do
-      @album = Album.find(params[:album_id])
-    end
-  end
 
   def show
     show! do
