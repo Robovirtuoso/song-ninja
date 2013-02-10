@@ -1,14 +1,18 @@
-class PermittedParameters < Struct.new(:params, :user)
+class PermittedParameters
+  include Virtus
+
+  attribute :parameters, String
+  attribute :user, String
 
   def current_model(model)
-    params.require(model).permit!
+    parameters.require(model).permit!
   end
 
   def usr
     if user.has_role? :admin
-      params.require(:user).permit!
+      parameters.require(:user).permit!
     else
-      params.require(:user).permit(
+      parameters.require(:user).permit(
         :name,
         :email,
         :password,

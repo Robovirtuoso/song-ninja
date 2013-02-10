@@ -1,4 +1,5 @@
-%h3= best_in_place [:user, @album.band, @album, @song], :title, type: :input
+= cache @song do
+  %h3= best_in_place [:user, @album.band, @album, @song], :title, type: :input
 
-%blockquote
-  %p= best_in_place [:user, @album.band, @album, @song], :lyrics, type: :textarea, display_with:  -> v { v.gsub(/[\r\n]+/, '<br>').html_safe }
+  %blockquote
+    %p= best_in_place [:user, @album.band, @album, @song], :lyrics, type: :textarea, display_with:  -> v { v.gsub(/[\r\n]+/, '<br>').html_safe }

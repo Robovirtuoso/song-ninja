@@ -8,6 +8,6 @@ class ApplicationController < ActionController::Base
   private
 
   def permitted_params
-    @permitted_paramaters ||= PermittedParameters.new(params, current_user)
+    @permitted_paramaters ||= PermittedParameters.new(parameters: params, user: current_user)
   end
 end

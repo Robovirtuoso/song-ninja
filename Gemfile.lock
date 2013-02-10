@@ -49,6 +49,8 @@ GEM
     bootstrap-sass (2.2.2.0)
       sass (~> 3.2)
     builder (3.0.4)
+    cache_digests (0.2.0)
+      actionpack (>= 3.2)
     cancan (1.6.8)
     capybara (2.0.1)
       mime-types (>= 1.16)
@@ -227,6 +229,7 @@ DEPENDENCIES
   binding_of_caller
   blue_conductor!
   bootstrap-sass
+  cache_digests
   cancan
   capybara
   coffee-rails (~> 3.2.1)
