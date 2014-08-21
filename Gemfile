@@ -29,7 +29,7 @@ group :test, :development do
 end
 
 gem 'rails', '3.2.7'
-gem 'sqlite3'
+gem 'pg'
 gem "best_in_place", '>= 1.1.2'
 gem "devise"
 gem "cancan"
